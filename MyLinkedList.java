@@ -1,4 +1,4 @@
-//TODO:
+//TODO: Add, get, set, toString, double linked
 //ISSUES: TBD
 //NOTES: Prioritize toString once you get the list working, helper methods returning Nodes must be private
 
@@ -18,7 +18,14 @@ public int size() {
 }
 
 public boolean add(String value) {
-	return true;
+	if (size() == 0) {
+		start = new Node(value);
+		size++;
+		return true;
+	}
+	else {
+		return true;
+	}
 }
 
 public boolean add(int index, String value) {
@@ -34,7 +41,13 @@ public String set(int index, String value) {
 }
 
 public String toString() {
-	return "";
+	Node current = start;
+	String thing = "";
+	while (current != null) {
+		thing += current.value() + ", ";
+		current = current.next();
+	}
+	return thing;
 }
 
 }
