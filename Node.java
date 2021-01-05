@@ -1,4 +1,4 @@
-//TODO: get/set methods
+//TODO:
 //ISSUES: TBD
 //NOTES:
 
@@ -17,5 +17,11 @@ public String getData() {
 	return data;
 }
 
-//getNext and prev here
+public Node getNext() {
+	return next;
+}
+
+public Node getPrevious() {
+	return prev;
+}
 }
