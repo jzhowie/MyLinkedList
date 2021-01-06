@@ -1,6 +1,6 @@
-//TODO: Add, get, set, double linked
+//TODO: Add, get, set, double linked, index-based exceptions
 //ISSUES: TBD
-//NOTES: Setting node addresses, helper methods returning Nodes must be private
+//NOTES: Helper methods returning Nodes must be private
 
 public class MyLinkedList {
 
@@ -29,20 +29,32 @@ public boolean add(String value) {
 		Node a = new Node(value);
 		end.setNext(a);
 		end = a;
+		size++;
 		return true;
 	}
 }
 
 public boolean add(int index, String value) {
-	if (size() == 0 || index == size - 1) {
+	if (size() == 0 || index == size()) {
 		add(value);
+		return true;
+	}
+	else if (index == 0) {
+		Node a = new Node(value);
+		a.setNext(start);
+		start = a;
+		size++;
 		return true;
 	}
 	return true;
 }
 
 public String get(int index) {
-	return "";
+	Node current = start;
+	for (int i = 0; i <= index; i++) {
+		current = current.getNext();
+	}
+	return current.getValue();
 }
 
 public String set(int index, String value) {
