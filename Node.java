@@ -13,15 +13,31 @@ public Node(String value){
 private String data;
 private Node next,prev;
 
-public String value() {
+public String getValue() {
 	return data;
 }
 
-public Node next() {
+public Node getNext() {
 	return next;
 }
 
-public Node previous() {
+public Node getPrevious() {
 	return prev;
+}
+
+
+public void setValue(String val) {
+	data = val;
+	return;
+}
+
+public void setNext(Node set) {
+	next = set;
+	return;
+}
+
+public void setPrevious(Node set) {
+	prev = set;
+	return;
 }
 }
