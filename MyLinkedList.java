@@ -51,7 +51,7 @@ public boolean add(int index, String value) {
 
 public String get(int index) {
 	Node current = start;
-	for (int i = 0; i <= index; i++) {
+	for (int i = 0; i < index; i++) {
 		current = current.getNext();
 	}
 	return current.getValue();
