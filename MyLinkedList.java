@@ -1,4 +1,4 @@
-//TODO: double linked, index-based exceptions (look at java doc for that)
+//TODO:
 //ISSUES: TBD
 //NOTES: Helper methods returning Nodes must be private
 
@@ -34,6 +34,9 @@ public boolean add(String value) {
 }
 
 public boolean add(int index, String value) {
+	if (index < 0 || index > size()) {
+		throw new IndexOutOfBoundsException("Index (" + index + ") out of range.");
+	}
 	if (size() == 0 || index == size()) {
 		add(value);
 	}
@@ -62,6 +65,9 @@ public boolean add(int index, String value) {
 }
 
 public String get(int index) {
+	if (index < 0 || index >= size()) {
+		throw new IndexOutOfBoundsException("Index (" + index + ") out of range.");
+	}
 	Node current = start;
 	for (int i = 0; i < index; i++) {
 		current = current.getNext();
@@ -70,6 +76,9 @@ public String get(int index) {
 }
 
 public String set(int index, String value) {
+	if (index < 0 || index >= size()) {
+		throw new IndexOutOfBoundsException("Index (" + index + ") out of range.");
+	}
 	Node current = start;
 	for (int i = 0; i < index; i++) {
 		current = current.getNext();
