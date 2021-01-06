@@ -1,6 +1,6 @@
-//TODO: Add, get, set, toString, double linked
+//TODO: Add, get, set, double linked
 //ISSUES: TBD
-//NOTES: Prioritize toString once you get the list working, helper methods returning Nodes must be private
+//NOTES: Setting node addresses, helper methods returning Nodes must be private
 
 public class MyLinkedList {
 
@@ -19,16 +19,25 @@ public int size() {
 
 public boolean add(String value) {
 	if (size() == 0) {
-		start = new Node(value);
+		Node a = new Node(value);
+		start = a;
+		end = a;
 		size++;
 		return true;
 	}
 	else {
+		Node a = new Node(value);
+		end.setNext(a);
+		end = a;
 		return true;
 	}
 }
 
 public boolean add(int index, String value) {
+	if (size() == 0 || index == size - 1) {
+		add(value);
+		return true;
+	}
 	return true;
 }
 
@@ -44,8 +53,8 @@ public String toString() {
 	Node current = start;
 	String thing = "";
 	while (current != null) {
-		thing += current.value() + ", ";
-		current = current.next();
+		thing += current.getValue() + ", ";
+		current = current.getNext();
 	}
 	return thing;
 }
