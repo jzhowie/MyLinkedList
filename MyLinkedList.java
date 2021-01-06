@@ -80,11 +80,11 @@ public String set(int index, String value) {
 }
 
 public String toString() {
-	Node current = end;
+	Node current = start;
 	String thing = "";
 	while (current != null) {
 		thing += current.getValue() + ", ";
-		current = current.getPrevious();
+		current = current.getNext();
 	}
 	return thing;
 }
