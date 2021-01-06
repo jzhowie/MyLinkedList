@@ -22,29 +22,27 @@ public boolean add(String value) {
 		Node a = new Node(value);
 		start = a;
 		end = a;
-		size++;
-		return true;
 	}
 	else {
 		Node a = new Node(value);
 		end.setNext(a);
+		a.setPrevious(end);
 		end = a;
-		size++;
-		return true;
 	}
+	size++;
+	return true;
 }
 
 public boolean add(int index, String value) {
 	if (size() == 0 || index == size()) {
 		add(value);
-		return true;
 	}
 	else if (index == 0) {
 		Node a = new Node(value);
 		a.setNext(start);
+		start.setPrevious(a);
 		start = a;
 		size++;
-		return true;
 	}
 	else {
 		Node current = start;
@@ -55,10 +53,12 @@ public boolean add(int index, String value) {
 		Node temp2 = current.getNext();
 		Node a = new Node(value);
 		a.setNext(temp2);
+		a.setPrevious(temp);
 		temp.setNext(a);
+		temp2.setPrevious(a);
 		size++;
-		return true;
 	}
+	return true;
 }
 
 public String get(int index) {
@@ -80,11 +80,11 @@ public String set(int index, String value) {
 }
 
 public String toString() {
-	Node current = start;
+	Node current = end;
 	String thing = "";
 	while (current != null) {
 		thing += current.getValue() + ", ";
-		current = current.getNext();
+		current = current.getPrevious();
 	}
 	return thing;
 }
