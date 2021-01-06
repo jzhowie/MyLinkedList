@@ -1,4 +1,4 @@
-//TODO: Add, get, set, double linked, index-based exceptions
+//TODO: Add, double linked, index-based exceptions (look at java doc for that)
 //ISSUES: TBD
 //NOTES: Helper methods returning Nodes must be private
 
@@ -58,7 +58,13 @@ public String get(int index) {
 }
 
 public String set(int index, String value) {
-	return "";
+	Node current = start;
+	for (int i = 0; i < index; i++) {
+		current = current.getNext();
+	}
+	String temp = current.getValue();
+	current.setValue(value);
+	return temp;
 }
 
 public String toString() {
