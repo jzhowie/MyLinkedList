@@ -112,6 +112,12 @@ public String remove(int index) {
 		start.getPrevious().setNext(null);
 		start.setPrevious(null);
 	}
+	else if (index == size() - 1) {
+		temp = end.getValue();
+		end = end.getPrevious();
+		end.getNext().setPrevious(null);
+		end.setNext(null);
+	}
 	size--;
 	return temp;
 }
