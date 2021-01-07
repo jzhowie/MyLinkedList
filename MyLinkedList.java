@@ -1,4 +1,4 @@
-//TODO: remove / extend
+//TODO: extend
 //ISSUES: TBD
 //NOTES: Helper methods returning Nodes must be private
 
@@ -11,6 +11,14 @@ public MyLinkedList() {
 	size = 0;
 	start = null;
 	end = null;
+}
+
+private Node getStart() {
+	return start;
+}
+
+private Node getEnd() {
+	return end;
 }
 
 public int size() {
@@ -101,6 +109,19 @@ public String toString() {
 	return thing + "]";
 }
 
+public String toStringReversed() {  // test function
+	Node current = end;
+	String thing = "[";
+	while (current != null) {
+		thing += current.getValue();
+		current = current.getPrevious();
+		if (current != null) {
+			thing += ", ";
+		}
+	}
+	return thing + "]";
+}
+
 public String remove(int index) {
 	String temp = start.getValue();
 	if (size() == 1) {
@@ -133,4 +154,7 @@ public String remove(int index) {
 	return temp;
 }
 
+public void extend(MyLinkedList other) {
+
+}
 }
