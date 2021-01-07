@@ -33,7 +33,7 @@ public boolean add(String value) {
 	return true;
 }
 
-public boolean add(int index, String value) {
+public void add(int index, String value) {
 	if (index < 0 || index > size()) {
 		throw new IndexOutOfBoundsException("Index (" + index + ") out of range.");
 	}
@@ -61,7 +61,7 @@ public boolean add(int index, String value) {
 		temp2.setPrevious(a);
 		size++;
 	}
-	return true;
+	return;
 }
 
 public String get(int index) {
