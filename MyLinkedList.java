@@ -1,4 +1,4 @@
-//TODO:
+//TODO: remove / extend
 //ISSUES: TBD
 //NOTES: Helper methods returning Nodes must be private
 
@@ -99,6 +99,21 @@ public String toString() {
 		}
 	}
 	return thing + "]";
+}
+
+public String remove(int index) {
+	String temp = start.getValue();
+	if (size() == 1) {
+		start = null;
+		end = null;
+	}
+	else if (index == 0) {
+		start = start.getNext();
+		start.getPrevious().setNext(null);
+		start.setPrevious(null);
+	}
+	size--;
+	return temp;
 }
 
 }
