@@ -28,16 +28,13 @@ public Node getPrevious() {
 
 public void setValue(String val) {
 	data = val;
-	return;
 }
 
 public void setNext(Node set) {
 	next = set;
-	return;
 }
 
 public void setPrevious(Node set) {
 	prev = set;
-	return;
 }
 }
