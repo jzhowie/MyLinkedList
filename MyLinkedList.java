@@ -118,6 +118,17 @@ public String remove(int index) {
 		end.getNext().setPrevious(null);
 		end.setNext(null);
 	}
+	else {
+		Node current = start;
+		for (int i = 0; i < index; i++) {
+			current = current.getNext();
+		}
+		temp = current.getValue();
+		current.getNext().setPrevious(current.getPrevious());
+		current.getPrevious().setNext(current.getNext());
+		current.setPrevious(null);
+		current.setNext(null);
+	}
 	size--;
 	return temp;
 }
