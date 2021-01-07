@@ -1,4 +1,4 @@
-//TODO: extend
+//TODO: extend (clearing other)
 //ISSUES: TBD
 //NOTES: Helper methods returning Nodes must be private
 
@@ -19,6 +19,12 @@ private Node getStart() {
 
 private Node getEnd() {
 	return end;
+}
+
+private void clear() {
+	start = null;
+	end = null;
+	size = 0;
 }
 
 public int size() {
@@ -69,7 +75,6 @@ public void add(int index, String value) {
 		temp2.setPrevious(a);
 		size++;
 	}
-	return;
 }
 
 public String get(int index) {
@@ -155,6 +160,10 @@ public String remove(int index) {
 }
 
 public void extend(MyLinkedList other) {
-
+	getEnd().setNext(other.getStart());
+	other.getStart().setPrevious(getEnd());
+	end = other.getEnd();
+	size = size() + other.size();
+	other.clear();
 }
 }
