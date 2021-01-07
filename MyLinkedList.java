@@ -90,12 +90,15 @@ public String set(int index, String value) {
 
 public String toString() {
 	Node current = start;
-	String thing = "";
+	String thing = "[";
 	while (current != null) {
-		thing += current.getValue() + ", ";
+		thing += current.getValue();
 		current = current.getNext();
+		if (current != null) {
+			thing += ", ";
+		}
 	}
-	return thing;
+	return thing + "]";
 }
 
 }
