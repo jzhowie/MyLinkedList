@@ -160,10 +160,21 @@ public String remove(int index) {
 }
 
 public void extend(MyLinkedList other) {
-	getEnd().setNext(other.getStart());
-	other.getStart().setPrevious(getEnd());
-	end = other.getEnd();
-	size = size() + other.size();
-	other.clear();
+	if (other.size() == 0) {
+		return;
+	}
+	else if (size() == 0) {
+		start = other.getStart();
+		end = other.getEnd();
+		size = other.size();
+		other.clear();
+	}
+	else {
+		getEnd().setNext(other.getStart());
+		other.getStart().setPrevious(getEnd());
+		end = other.getEnd();
+		size = size() + other.size();
+		other.clear();
+	}
 }
 }
