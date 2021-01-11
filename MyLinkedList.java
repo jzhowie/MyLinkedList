@@ -128,6 +128,9 @@ public String toStringReversed() {  // test function
 }
 
 public String remove(int index) {
+	if (index < 0 || index >= size()) {
+		throw new IndexOutOfBoundsException("Index (" + index + ") out of range.");
+	}
 	String temp = start.getValue();
 	if (size() == 1) {
 		start = null;
